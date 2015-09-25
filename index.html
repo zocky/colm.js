@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Colm.js by zocky</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Colm.js</h1>
+      <h2 class="project-tagline">Responsive column layout (like Pinterest or Masonry) with minimal setup.</h2>
+      <a href="https://github.com/zocky/colm.js" class="btn">View on GitHub</a>
+      <a href="https://github.com/zocky/colm.js/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/zocky/colm.js/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="colmjs" class="anchor" href="#colmjs" aria-hidden="true"><span class="octicon octicon-link"></span></a>colm.js</h1>
+
+<p>Colm provides responsive columns (like Pinterest or Masonry) with minimal setup.</p>
+
+<h2>
+<a id="basic-usage" class="anchor" href="#basic-usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic usage</h2>
+
+<ul>
+<li>Download <code>colm.js</code> to your script directory.</li>
+<li>Add <code>&lt;script type="text/javascript" src="path/to/colm.js"&gt;&lt;/script&gt;</code> anywhere in your HTML.</li>
+<li>Add <code>data-colm-width="[desired column width in pixels]"</code> to the container element or elements which you wish to convert into columns.</li>
+</ul>
+
+<p>You are done. No other files to import, no javascript to call. </p>
+
+<p>You can now use regular CSS, including <code>@media</code> queries to control the width of your container(s) and hence the actual number and width of columns. When the window is resized, colm checks if the number of column needs to be changed, and if so, lays out the elements again.</p>
+
+<h2>
+<a id="what-just-happened" class="anchor" href="#what-just-happened" aria-hidden="true"><span class="octicon octicon-link"></span></a>What just happened</h2>
+
+<p>Colm scans your HTML for elements containing the <code>data-colm-width</code> attribute, and lays out all their immediate children into the number of columns that best fit the desired column width. This is achieved by placing the appropriate number of simple <code>&lt;div&gt;</code> elements into the container to represent columns, and then looping through all the original children and placing each into the shortest column. </p>
+
+<h2>
+<a id="advanced-usage" class="anchor" href="#advanced-usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Advanced usage</h2>
+
+<ul>
+<li>Use <code>colm()</code> to layout any newly added column containers</li>
+<li>Use <code>colm.appendTo(selector,content)</code> to add new children to a container. Content can be a single element, an array or node list of elements or an HTML string.</li>
+<li>Use the <code>data-colm-place</code> attribute on child elements to force them into a particular column. Use negative numbers for counting from the right. The most useful values are <code>"1"</code> and <code>"-1"</code>, especially when used on the first few children. This can be used to place content reliably in top left and right corners, and gracefully collapse it into a single column on narrower displays.</li>
+</ul>
+
+<h2>
+<a id="things-to-consider" class="anchor" href="#things-to-consider" aria-hidden="true"><span class="octicon octicon-link"></span></a>Things to consider</h2>
+
+<ul>
+<li>Colm sizes all columns equally, dividing up all the container width. This may cause your columns to have varying widths in different contexts. If you want to have fixed column widths, use CSS including <code>@media</code> queries on the container to set its width to multiples of the desired column width.</li>
+<li>Colm doesn't provide any spacing or gutters. Use CSS, especially <code>margin</code> on child elements to control spacing.</li>
+<li>Colm doesn't resize the children in any way. Things will work best on all browsers if all the children are regular block elements.</li>
+<li>Colm changes your HTML by inserting a <code>&lt;div&gt;</code> element between your container and its children (but may not run at all if e.g. JavaScript is disabled in a browser). Bear this in mind when constructing CSS selectors.</li>
+<li>The container is assigned the attribute <code>data-colm-columns</code> with the current number of columns. Individual columns are assigned attributes <code>data-colm-column</code> (column number), as well as <code>data-colm-first</code>, <code>data-colm-not-first</code>, <code>data-colm-last</code> and <code>data-colm-not-last</code> as appropriate. You can use these to style columns. Try things like:</li>
+</ul>
+
+<pre><code>  #content &gt; [data-colm-column] { 
+    border-left: solid 1px silver;
+  }
+  #content[data-colm-columns="1"] .hide-on-narrow { 
+    display:none;
+  }
+  #content &gt; [data-colm-not-first] { 
+    border-left: solid 1px silver;
+  }
+</code></pre>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/zocky/colm.js">Colm.js</a> is maintained by <a href="https://github.com/zocky">zocky</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
