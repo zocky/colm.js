@@ -53,44 +53,46 @@
         margin-left:-1px;
         background:white;
       }
-
+      pre {
+        margin:0;
+        padding:0;
+      }
     </style>
   </head>
   <body>
     <div id="colm1" class="colm" data-colm-width="240" data-colm-align-columns="center">
-      <article data-colm-place="1">
+      <article>
         <header>
           <h2>A</h2>
-          Top Left
+          About this layout
         </header>
+        <section>
+        Container settings
+<pre>width:  240
+align-columns: center
+align-items: top</pre>
+        </section>
       </article>
       <article data-colm-place="1">
         <header>
           <h2>B</h2>
-          Second Left
+          Always Left
         </header>
+        <section>Item settings <pre>place:1</pre></section>
       </article>
       <article data-colm-place="-1" >
         <header>
           <h2>C</h2>
           Top Right
         </header>
+        <section>Item settings <pre>place:-1</pre></section>
       </article>
-      <article data-colm-place="1" >
+      <article data-colm-place="1">
         <header>
           <h2>D</h2>
-          D Third Left
+          Second Left
         </header>
-      </article>
-      <article>
-        <header>
-          About this layout
-        </header>
-        <section>
-<pre>width:  240
-align-columns: center
-align-items: top</pre>
-        </section>
+        <section>Item settings <pre>place:1</pre></section>
       </article>
       <article>
         <section>
