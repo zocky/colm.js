@@ -3,7 +3,7 @@
 colm = (function() {
   var init_done;
   var array = function(a) {
-    return a.length ? Array.prototype.slice.call(a,0) : [a];
+    return 'length' in a ? Array.prototype.slice.call(a,0) : [a];
   }
   var dget = function(el,s) {
     return el.getAttribute('data-colm-'+s);
@@ -108,7 +108,7 @@ colm = (function() {
         dset(column,'column',i+1);
         dset(column,i==0 ? 'first' : 'not-first','true');
         dset(column,i==cCount-1 ? 'last' : 'not-last','true');
-        column.style.flexBasis = wMax+'px';
+        column.setAttribute('style','flex-basis:'+wMax+'px;flex-basis:'+wMax+'px');
         cont.appendChild(column);
       }
       colm.appendTo(cont,children);
