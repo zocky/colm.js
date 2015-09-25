@@ -33,6 +33,7 @@
 <li>Download <code>colm.js</code> to your script directory.</li>
 <li>Add <code>&lt;script type="text/javascript" src="path/to/colm.js"&gt;&lt;/script&gt;</code> anywhere in your HTML.</li>
 <li>Add <code>data-colm-width="[desired column width in pixels]"</code> to the container element or elements which you wish to convert into columns.</li>
+<li>Optionally add <code>data-colm-align-columns</code> and <code>data-colm-align-items</code> attributes to the container. See <a href="#advanced-usage">Advanced usage for details</a>.</li>
 </ul>
 
 <p>You are done. No other files to import, no javascript to call. </p>
@@ -41,10 +42,6 @@
 
 <h2>
 <a id="how-does-it-look" class="anchor" href="#how-does-it-look" aria-hidden="true"><span class="octicon octicon-link"></span></a>How does it look?</h2>
-<iframe src="http://zocky.github.io/colm.js/demo" style="width:100%;height:400px;height:50vh;resize:both;border:none"></iframe>
-
-
-<p>Drag the divider to resize frames and see how items are layed out at various widths.</p>
 
 <p>See <a href="http://zocky.github.io/colm.js/demo">the demo</a>.</p>
 
@@ -56,16 +53,20 @@
 <h2>
 <a id="advanced-usage" class="anchor" href="#advanced-usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Advanced usage</h2>
 
-<p>Use <code>colm()</code> to layout any newly added column containers.</p>
+<h3>
+<a id="colm" class="anchor" href="#colm" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>colm()</code>
+</h3>
+
+<p>Use <code>colm()</code> to programmatically trigger layouting on the page. This is automatically called on page load and resize.</p>
 
 <h3>
-<a id="colmappendtoselectorcontent" class="anchor" href="#colmappendtoselectorcontent" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>colm.appendTo(selector,content)</code>
+<a id="colmappendtoselectorcontent" class="anchor" href="#colmappendtoselectorcontent" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>colm.appendTo(<em>selector</em>,<em>content</em>)</code>
 </h3>
 
 <p>Use <code>colm.appendTo</code> to add new children to a container. Content can be a single element, an array or node list of elements or an HTML string.</p>
 
 <h3>
-<a id="data-colm-align-columns" class="anchor" href="#data-colm-align-columns" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>data-colm-align-columns</code>
+<a id="data-colm-align-columnsalignment" class="anchor" href="#data-colm-align-columnsalignment" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>data-colm-align-columns="<em>alignment</em>"</code>
 </h3>
 
 <p>Use the <code>data-colm-align-columns</code> attribute on the container element to control distribution of left over space, if the width of the container isn't an exact multiple of the column width.
@@ -77,7 +78,7 @@ Can have the following values: </p>
 <li>
 <code>right</code> aligns columns to the right of the container</li>
 <li>
-<code>center</code> centers columns horizontally inside the container</li>
+<code>center</code> centers columns horizontally within the container</li>
 <li>
 <code>justify</code> adds equal space between columns</li>
 <li>
@@ -87,13 +88,35 @@ Can have the following values: </p>
 </ul>
 
 <h3>
-<a id="data-colm-min-width" class="anchor" href="#data-colm-min-width" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>data-colm-min-width</code>
+<a id="data-colm-align-itemsalignment" class="anchor" href="#data-colm-align-itemsalignment" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>data-colm-align-items="<em>alignment</em>"</code>
+</h3>
+
+<p>Use the <code>data-colm-align-columns</code> attribute on the container element to control distribution of left over space within each column.
+Can have the following values: </p>
+
+<ul>
+<li>
+<code>top</code> aligns items to the top of the column</li>
+<li>
+<code>bottom</code> aligns items to the bottom of the column</li>
+<li>
+<code>center</code> centers items vertically within the container</li>
+<li>
+<code>justify</code> adds equal space between items</li>
+<li>
+<code>space</code> adds equal space between and around items</li>
+<li>
+<code>stretch</code> stretches items to fill the column</li>
+</ul>
+
+<h3>
+<a id="data-colm-min-widthwidth-in-pixels" class="anchor" href="#data-colm-min-widthwidth-in-pixels" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>data-colm-min-width="<em>width in pixels</em>"</code>
 </h3>
 
 <p>Use the <code>data-colm-min-width</code> attribute on the container element if you want to allow your columns to shrink somewhat to fit another column in the container. </p>
 
 <h3>
-<a id="data-colm-place" class="anchor" href="#data-colm-place" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>data-colm-place</code>
+<a id="data-colm-placecolumn" class="anchor" href="#data-colm-placecolumn" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>data-colm-place="<em>column</em>"</code>
 </h3>
 
 <p>Use the <code>data-colm-place</code> attribute on child elements to force them into a particular column. Use negative numbers for counting from the right. The most useful values are <code>"1"</code> and <code>"-1"</code>, especially when used on the first few children. This can be used to place content reliably in top left and right corners, and gracefully collapse it into a single column on narrower displays.</p>
