@@ -1,6 +1,8 @@
 # colm.js
 Colm provides responsive columns (like Pinterest or Masonry) with minimal setup.
 
+Visit Colm's website at http://zocky.github.io/colm.js .
+
 ## Basic usage
 * Download `colm.js` to your script directory.
 * Add `<script type="text/javascript" src="path/to/colm.js"></script>` anywhere in your HTML.
