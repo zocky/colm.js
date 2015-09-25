@@ -28,7 +28,7 @@ colm = (function() {
       s.innerHTML = (
         '[data-colm-processed][data-colm-align-columns~="stretch"] > * {-webkit-flex-grow:1;flex-grow:1;}'
       + '\n[data-colm-processed][data-colm-min-width] > * {-webkit-flex-shrink:1;flex-shrink:1;}'
-      + '\n[data-colm-processed] {display:-webkit-flex; display:flex;-webkit-flex-flow:row;flex-flow:row;-webkit-align-items:flex-start;align-items:flex-start;}'
+      + '\n[data-colm-processed] {display:-webkit-flex; display:flex;-webkit-flex-flow:row;flex-flow:row;-webkit-align-items:flex-start;align-items:flex-start;-webkit-justify-content:flex-start }'
       + align('left','flex-start')
       + align('right','flex-end')
       + align('center','center')
@@ -42,7 +42,17 @@ colm = (function() {
       var wMax = +dget(cont,'width');
       var wMin = +dget(cont,'min-width');
       
-      var wCont = cont.offsetWidth;
+  
+      var cs = getComputedStyle(cont);
+      function fget(p) {
+        return parseFloat(cs[p]);
+      }
+      var w = fget('width');
+      if (cs['box-sizing'] == 'border-box') {
+        w -= fget('border-left-width') + fget('padding-left') + fget('padding-right') + fget('border-right-width');
+      }
+          
+      var wCont = w;
       var cMin = Math.max(Math.floor(wCont/wMax),1);
       var cCount;
       if (wMin) {
@@ -76,7 +86,7 @@ colm = (function() {
       cont.innerHTML = '';
       for (var i = 0; i<cCount; i++) {
         var column = doc.createElement('DIV');
-        dset(column,'column',i);
+        dset(column,'column',i+1);
         dset(column,i==0 ? 'first' : 'not-first','true');
         dset(column,i==cCount-1 ? 'last' : 'not-last','true');
         cont.appendChild(column);
