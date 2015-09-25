@@ -3,7 +3,7 @@
 colm = (function() {
   var init_done;
   var array = function(a) {
-    return Array.prototype.slice.call(a,0);
+    return a.length ? Array.prototype.slice.call(a,0) : [a];
   }
   var dget = function(el,s) {
     return el.getAttribute('data-colm-'+s);
@@ -21,7 +21,7 @@ colm = (function() {
       var s = doc.createElement('style');
       s.innerHTML = (
         '\n  [data-colm-width][data-colm-processed] > * {-webkit-flex:1 1 0;flex:1 1 0;}'
-      + '\n  [data-colm-width][data-colm-processed] {display:-webkit-flex; display:flex;-webkit-flex-flow:row;flex-flow:row;-webkit-align-items:flex-start;align-items:flex-start;}'
+      + '\n  [data-colm-width][data-colm-processed] {display:-webkit-flex; display:flex;-webkit-flex-flow:row;flex-flow:row;-webkit-align-items:stretch;align-items:stretch;}'
       );
       doc.head.appendChild(s);
     }
@@ -40,14 +40,13 @@ colm = (function() {
       
       var cCount = dMin < dMax || wcMax < wMin ? cMin : cMax;
 
-      var children;
+      var children = [];
       
       if (dget(cont,'processed')) {
         if (cont.children.length == cCount) return;
-        children = [];
         each(cont.children, function(a){
           each(a.children, function(b){
-            children[dget(b,'index')]=b;
+            children[dget(b,'index')] = b;
           });
         })
       } else {
@@ -58,10 +57,18 @@ colm = (function() {
       dset(cont,'columns',cCount);
       cont.innerHTML = '';
       for (var i = 0; i<cCount; i++) {
-        cont.appendChild(doc.createElement('DIV'));
+        var column = doc.createElement('DIV');
+        dset(column,'column',i);
+        dset(column,i==0 ? 'first' : 'not-first','true');
+        dset(column,i==cCount-1 ? 'last' : 'not-last','true');
+        cont.appendChild(column);
       }
       colm.appendTo(cont,children);
     })
+  }
+  var height = function(el) {
+    var lc = el.lastElementChild;
+    return lc ? lc.offsetTop + lc.offsetHeight : 0;
   }
   colm.appendTo = function (cont, content) {
       if (typeof cont == 'string') cont = doc.querySelector(cont);
@@ -82,7 +89,7 @@ colm = (function() {
         
         if (!place) {
           var c = columns.reduce(function(a,b) {
-            return !a || b.offsetHeight<a.offsetHeight ? b : a;
+            return !a || height(b)<height(a) ? b : a;
           },null);
           c.appendChild(child);
         } else {
