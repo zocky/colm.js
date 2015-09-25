@@ -67,6 +67,11 @@ colm = (function() {
       if (typeof cont == 'string') cont = doc.querySelector(cont);
       if (typeof content == 'string') content = doc.createRange().createContextualFragment(content).children;
       
+      if (!dget(cont,'processed')) {
+        each(content,function(child) { cont.appendChild(child); });
+        return;
+      }
+      
       var columns = array(cont.children);
       var cnt = dget(cont,'count');
       each(content,function(child) {
