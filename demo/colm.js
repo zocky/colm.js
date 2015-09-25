@@ -28,7 +28,7 @@ colm = (function() {
       s.innerHTML = (
         '[data-colm-processed][data-colm-align-columns~="stretch"] > * {-webkit-flex-grow:1;flex-grow:1;}'
       + '\n[data-colm-processed][data-colm-min-width] > * {-webkit-flex-shrink:1;flex-shrink:1;}'
-      + '\n[data-colm-processed] {display:-webkit-flex; display:flex;-webkit-flex-flow:row;flex-flow:row;-webkit-align-items:flex-start;align-items:flex-start;-webkit-justify-content:flex-start }'
+      + '\n[data-colm-processed] {display:-webkit-flex; display:flex;-webkit-flex-flow:row;flex-flow:row;-webkit-align-items:stretch;align-items:stretch;-webkit-justify-content:flex-start }'
       + align('left','flex-start')
       + align('right','flex-end')
       + align('center','center')
