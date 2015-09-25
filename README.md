@@ -14,6 +14,6 @@ Colm scans your HTML for elements containing the `data-colm-width` attribute, an
 Use regular CSS, including `@media` queries to control the width of your container and hence the actual number and width of columns. When the window is resized, colm checks if the number of column needs to be changed, and if so, lays out the elements again.
 
 ## Advanced usage
-* Use `colm()` can be called to layout any newly added column containers
-* Use `colm.appendTo(selector,content)` can be called to add new children to a container. Content can be a single element, an array or node list of elements or an HTML string.
+* Use `colm()` to layout any newly added column containers
+* Use `colm.appendTo(selector,content)` to add new children to a container. Content can be a single element, an array or node list of elements or an HTML string.
 * Use the `data-colm-place` attribute on child elements to force them into a particular column. Use negative numbers for counting from the right. The most useful values are `"1"` and `"-1"`, especially when used on the first few children. This can be used to place content reliably in top left and right corners, and gracefully collapse it into a single column on narrower displays.
