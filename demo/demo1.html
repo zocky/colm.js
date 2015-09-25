@@ -3,7 +3,7 @@
   <head>
     <script type="text/javascript" src="colm.js"></script>
     <style>
-      body {
+     body {
         margin:0;
         padding:0;
       }
@@ -23,7 +23,6 @@
       .colm article section {
         margin:0;
         padding:6px 10px;
-        background:rgba(255,255,255,0.1);
       }
       
       .colm article h2 {
@@ -63,48 +62,34 @@
   </head>
   <body>
     <div id="colm1" class="colm" data-colm-width="150" data-colm-align-columns="stretch" data-colm-align-items="stretch">
-      <article data-colm-place="1">
-        <header>
-          <h2>A</h2>
-          Top Left
-        </header>
-      </article>
-      <article data-colm-place="1">
-        <header>
-          <h2>B</h2>
-          Second Left
-        </header>
-      </article>
-      <article data-colm-place="-1" >
-        <header>
-          <h2>C</h2>
-          Top Right
-        </header>
-      </article>
-      <article data-colm-place="1" >
-        <header>
-          <h2>D</h2>
-          D Third Left
-        </header>
-      </article>
+    <div id="colm1" class="colm" data-colm-width="160" data-colm-min-width="140" data-colm-align-columns="stretch" data-colm-align-items="stretch">
       <article>
         <header>
-          About this layout
+          <h2>A</h2>
+          About
         </header>
         <section>
-          This layout stretches columns with <code>stretch</code>.</code>
+        Container settings
+<pre>width:  
+  160
+min-width:
+  140
+align-columns:
+  stretch
+align-items:
+  stretch</pre>
         </section>
       </article>
       <article>
         <section>
           <h2>1</h2>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </section>
       </article>
       <article>
         <section>
           <h2>2</h2>
-          Mauris condimentum, ligula at ornare pellentesque, elit lorem pulvinar ex, id aliquam nibh lectus interdum turpis.
+          Mauris condimentum, ligula at ornare pellentesque, elit lorem pulvinar ex, id aliquam nibh lectus interdum turpis. 
         </section>
       </article>
       <article>
@@ -122,7 +107,7 @@
       <article>
         <section>
           <h2>5</h2>
-          Praesent dui arcu, pharetra in ornare quis, tempus non ipsum. 
+          Praesent dui arcu, pharetra in ornare quis, tempus non ipsum.
         </section>
       </article>
       <article>
@@ -134,19 +119,13 @@
       <article>
         <section>
           <h2>7</h2>
-          Suspendisse tincidunt orci quis commodo fermentum. Praesent a scelerisque nibh. Sed consequat luctus posuere. 
+          Suspendisse tincidunt orci quis commodo fermentum.
       </article>
       <article>
         <section>
           <h2>8</h2>
           Donec tempus turpis libero, vitae commodo odio scelerisque non.
         </section>
-      </article>
-      <article>
-        <section>
-          <h2>9</h2>
-            Mauris tincidunt, odio et venenatis euismod, lorem diam congue sem, vestibulum tempor ante est nec ante. 
-          </section>
       </article>
     </div>
   </body>
