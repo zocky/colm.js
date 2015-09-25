@@ -3,109 +3,147 @@
   <head>
     <script type="text/javascript" src="colm.js"></script>
     <style>
+      body {
+        margin:0;
+        padding:0;
+      }
       .colm {
-        background:white;
-        margin:0 auto;
-      }
-      .colm[data-colm-processed] > [data-colm-not-first] {
-        border-left: solid 1px silver;
-      }
-      
-      .colm article {
-        font-family:serif;
         padding:10px;
-        margin:0px 0 20px;
-        font-size:13px;
+      }
+      .colm article {
+        font-family:sans-serif;
+        margin:20px 10px;
+        font-size:14px;
+        line-height:1.6em;
+        color:#333;
+        vertical-align:bottom;
       }
       
-      .colm article:first-letter {
+      .colm article section {
+        margin:0;
+        text-align:left
+      }
+      
+      .colm article h2 {
         font-weight:bold;
-        font-style:normal;
-        margin-right:6px;  
-        color:#800;
+        font-size:14px;
+        display:inline-block;
+        width:1.6em;
+        height:1.6em;
+        text-align:center;
+        background:#666;
+        padding:1px;
+        color:white;
+        vertical-align:middle;
+        margin:0 4px 0 0;
+      }
+      .colm article section h2 {
+        background:#999;
       }
       
-      .colm article:first-line {
-        font-style:italic;
-        padding-right:20px;
-        font-size:160%;
+      .colm article header {
+        font-size:16px;
+        vertical-align:center;
+        font-weight:bold;
       }
+      
+      [data-colm-column] {
+        border-right:solid 1px #ccc;
+        border-left:solid 1px #ccc;
+        margin-left:-1px;
+      }
+
     </style>
   </head>
   <body>
-   <div id="colm1" class="colm" data-colm-width="240" data-colm-align-columns="center">
+    <div id="colm1" class="colm" data-colm-width="240" data-colm-min-width="220"  data-colm-align-columns="stretch">
       <article data-colm-place="1">
         <header>
-          A Top left
+          <h2>A</h2>
+          Top Left
         </header>
-        <p>
-          This item was placed using <code>data-colm-place="1"</code>.
-        </p>
-        <p>
-          Because it comes first in HTML, it will always be placed here.
-        </p>
       </article>
       <article data-colm-place="1">
         <header>
-          B Second left
+          <h2>B</h2>
+          Second Left
         </header>
-        <p>
-          This item was placed using <code>data-colm-place="1"</code>.
-        </p>
       </article>
       <article data-colm-place="-1" >
         <header>
-          C Top right
+          <h2>C</h2>
+          Top Right
         </header>
-        <p>
-          This item was placed using <code>data-colm-place="-1"</code>. 
-          It will always be placed in the rightmost column. 
-        </p>
-        <p>
-          Because it comes third in HTML, it will be placed under A and B if the view is collapsed into a single column.
-        </p>
       </article>
       <article data-colm-place="1" >
         <header>
-          D Third left
+          <h2>D</h2>
+          D Third Left
         </header>
-        <p>
-          This item was placed using <code>data-colm-place="1"</code>. It will always be placed in the leftmost column. 
-        </p>
-        <p>
-          Because it comes fourth in HTML, it will be placed under C if the view is collapsed into a single column.
-        </p>
       </article>
       <article>
         <header>
-          (1) About this layout
+          About this layout
         </header>
-        <p>
-          This layout uses <code>data-colm-align-columns="center".</code>
-        </p>
+        <section>
+          This layout centers columns with <code>center</code>.
+        </section>
       </article>
       <article>
-        1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at ultrices quam. Ut nec accumsan arcu, ut ornare ante. 
+        <section>
+          <h2>1</h2>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at ultrices quam. Ut nec accumsan arcu, ut ornare ante. 
+        </section>
       </article>
       <article>
-        2 Mauris condimentum, ligula at ornare pellentesque, elit lorem pulvinar ex, id aliquam nibh lectus interdum turpis. Pellentesque convallis odio turpis, nec commodo augue malesuada id. 
+        <section>
+          <h2>2</h2>
+          Mauris condimentum, ligula at ornare pellentesque, elit lorem pulvinar ex, id aliquam nibh lectus interdum turpis. Pellentesque convallis odio turpis, nec commodo augue malesuada id. 
+        </section>
       </article>
       <article>
-        3 Nulla nunc elit, sollicitudin et eros vitae, lacinia ullamcorper enim. 
+        <section>
+          <h2>3</h2>
+            Nulla nunc elit, sollicitudin et eros vitae, lacinia ullamcorper enim. 
+        </section>
       </article>
       <article>
-        4 Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras sit amet leo quis ipsum feugiat semper sed in metus. Praesent dictum, nunc a varius consectetur, nulla diam molestie sapien, ac malesuada libero elit at lectus. Quisque posuere mi in lacus ultricies, vitae vehicula purus efficitur. Nunc iaculis, dui eget sagittis dictum, enim ante mattis nisl, a tristique metus metus id ante. Fusce sit amet lorem ex. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque ut mauris non diam lobortis cursus. Donec tristique laoreet nisl nec sollicitudin. Praesent a eros felis. Vestibulum faucibus lectus vitae nunc blandit, ut euismod dui dapibus. Proin eleifend eleifend lectus et aliquam. Vestibulum a blandit ex. Sed risus dui, facilisis vitae feugiat nec, dapibus in justo. Duis ac risus at ipsum viverra aliquet. Vestibulum turpis dui, aliquam sit amet ultrices vitae, lacinia vitae lectus.
+        <section>
+          <h2>4</h2>
+          Interdum et malesuada fames ac ante ipsum primis in faucibus. 
+        </section>
       </article>
       <article>
-        5 Praesent dui arcu, pharetra in ornare quis, tempus non ipsum. Vestibulum et molestie tortor. Donec vitae purus nunc. Integer porta magna nec magna venenatis mattis. Quisque bibendum finibus faucibus. Donec luctus massa non sagittis congue. Vivamus metus erat, iaculis et faucibus sed, ultrices sit amet felis. Suspendisse potenti. Nam et arcu sed ligula accumsan maximus in eu neque. Quisque condimentum quam velit. Suspendisse porttitor, felis sit amet euismod pretium, magna elit egestas odio, ut convallis orci sapien vitae diam. Integer eget turpis neque.
+        <section>
+          <h2>5</h2>
+          Praesent dui arcu, pharetra in ornare quis, tempus non ipsum. Vestibulum et molestie tortor. Donec vitae purus nunc. 
+        </section>
       </article>
       <article>
-        6 Vivamus pellentesque urna nec odio tristique, quis pulvinar libero ultricies. Nam elementum, lacus sed placerat fringilla, eros augue sodales eros, eu auctor ligula nisi a enim. Etiam viverra massa arcu, vitae dignissim lorem tempor a. Suspendisse nibh augue, eleifend aliquam consequat vitae, rhoncus id quam. Aenean viverra ipsum quis tempor elementum. Mauris sit amet elit sed purus porttitor ullamcorper nec et neque. Aliquam tincidunt porta interdum. Maecenas non nisi sed enim tincidunt varius. Quisque maximus, ipsum in ornare posuere, velit lacus dictum velit, nec semper mauris quam eget orci. Sed fermentum ex faucibus tristique commodo. Vivamus vulputate eget quam et iaculis. Ut ut nisl massa. Praesent accumsan dolor id turpis gravida, ac fringilla ex molestie. Etiam at neque justo. Cras suscipit tellus libero, non ornare arcu molestie nec. Donec gravida arcu sed sem eleifend malesuada.
-      </article>
-        7 Suspendisse tincidunt orci quis commodo fermentum. Praesent a scelerisque nibh. Sed consequat luctus posuere. Morbi id dolor ullamcorper, condimentum velit iaculis, gravida urna. Cras fringilla justo at erat egestas, in sagittis eros facilisis. Nam nec hendrerit sapien. Duis tellus augue, suscipit vel elit vel, tincidunt faucibus leo. Phasellus tincidunt dignissim est, at luctus est blandit eget. Pellentesque faucibus convallis placerat. Vivamus urna justo, aliquam eget lacus a, viverra mattis enim. Curabitur a turpis scelerisque, iaculis massa at, convallis ligula. Vivamus eget justo justo.
+        <section>
+          <h2>6</h2>
+          Vivamus pellentesque urna nec odio tristique, quis pulvinar libero ultricies. 
+        </section>
       </article>
       <article>
-        8 Donec tempus turpis libero, vitae commodo odio scelerisque non. Mauris tincidunt, odio et venenatis euismod, lorem diam congue sem, vestibulum tempor ante est nec ante. Phasellus vitae porta risus. Suspendisse placerat elit nec quam laoreet, vitae blandit libero dictum. Pellentesque vehicula lectus in lorem finibus imperdiet. Duis sit amet erat diam. Aliquam non facilisis elit, convallis facilisis libero. Integer ante nulla, cursus sit amet mauris ut, consequat porttitor erat.
+        <section>
+          <h2>7</h2>
+          Suspendisse tincidunt orci quis commodo fermentum. Praesent a scelerisque nibh. Sed consequat luctus posuere. 
+      </article>
+      <article>
+        </section>
+      </article>
+      <article>
+        <section>
+          <h2>8</h2>
+          Donec tempus turpis libero, vitae commodo odio scelerisque non.
+        </section>
+      </article>
+      <article>
+        <section>
+          <h2>9</h2>
+          Mauris tincidunt, odio et venenatis euismod, lorem diam congue sem, vestibulum tempor ante est nec ante. 
+        </section>
       </article>
     </div>
   </body>
