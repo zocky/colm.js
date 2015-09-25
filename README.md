@@ -7,7 +7,7 @@ For demos and more, visit [Colm's website](http://zocky.github.io/colm.js).
 * Download `colm.js` to your script directory.
 * Add `<script type="text/javascript" src="path/to/colm.js"></script>` anywhere in your HTML.
 * Add `data-colm-width="[desired column width in pixels]"` to the container element or elements which you wish to convert into columns.
-* Optionally add `data-colm-align-columns` and `data-colm-align-items` attributes to the container. See [Advanced usage for details](#advanced-usage).
+* Optionally add `data-colm-align-columns` and `data-colm-align-items` attributes to the container. See [Advanced usage](#advanced-usage) for details.
 
 You are done. No other files to import, no javascript to call. 
 
