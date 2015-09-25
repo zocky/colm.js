@@ -2,17 +2,21 @@
   <head>
     <style>
       #demo {
+        display:-webkit-flex;
         display:flex;
         flex-flow:row;
+        -webkit-flex-flow:row;
         position:fixed;
         top:0; left:0;
         right:0; bottom:0;
       }
       #demo-left {
-        flex:0 0 50%;
+        -webkit-flex:0 0 400px;
+        flex:0 0 400px;
         border:solid 1px silver;
       }
       #demo-right {
+        -webkit-flex:1 1 0;
         flex:1 1 0;
         border:solid 1px silver;
       }
