@@ -64,6 +64,7 @@
         dx = x2-x;
         w2 = Math.max(100,Math.min(div.parentNode.offsetWidth - 100,w+dx));
         div.previousElementSibling.style.flexBasis = w2+'px';
+        div.previousElementSibling.style['-webkit-flex-basis'] = w2+'px';
         colm();
       })
       overlay.addEventListener('mouseup',function(e){
