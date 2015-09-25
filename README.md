@@ -21,5 +21,18 @@ Colm scans your HTML for elements containing the `data-colm-width` attribute, an
 
 ## Things to consider
 * Colm sizes all columns equally, dividing up all the container width. This may cause your columns to have varying widths in different contexts. If you want to have fixed column widths, use CSS including `@media` queries on the container to set its width to multiples of the desired column width.
-* Colm changes your HTML by inserting a `<div>` element between your container and its children (but may not run at all if e.g. JavaScript is disabled in a browser). Bear this in mind when constructing CSS selectors.
+* Colm doesn't provide any spacing or gutters. Use CSS, especially `margin` on child elements to control spacing.
 * Colm doesn't resize the children in any way. Things will work best on all browsers if all the children are regular block elements.
+* Colm changes your HTML by inserting a `<div>` element between your container and its children (but may not run at all if e.g. JavaScript is disabled in a browser). Bear this in mind when constructing CSS selectors.
+* The container is assigned the attribute `data-colm-columns` with the current number of columns. Individual columns are assigned attributes `data-colm-column` (column number), as well as `data-colm-first`, `data-colm-not-first`, `data-colm-last` and `data-colm-not-last` as appropriate. You can use these to style columns. Try things like:
+````
+  #content > [data-colm-column] { 
+    border-left: solid 1px silver;
+  }
+  #content[data-colm-columns="1"] .hide-on-narrow { 
+    display:none;
+  }
+  #content > [data-colm-not-first] { 
+    border-left: solid 1px silver;
+  }
+````
