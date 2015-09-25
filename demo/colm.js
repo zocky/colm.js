@@ -19,9 +19,22 @@ colm = (function() {
     if (!init_done) {
       init_done = true;
       var s = doc.createElement('style');
+      function align(a,b) {
+        return (
+          '\n[data-colm-processed][data-colm-align-columns~="'+a+'"]'
+        + ' {-webkit-justify-content:'+b+';justify-content:'+b+';}'
+        );
+      }
       s.innerHTML = (
-        '\n  [data-colm-width][data-colm-processed] > * {-webkit-flex:1 1 0;flex:1 1 0;}'
-      + '\n  [data-colm-width][data-colm-processed] {display:-webkit-flex; display:flex;-webkit-flex-flow:row;flex-flow:row;-webkit-align-items:stretch;align-items:stretch;}'
+        '[data-colm-processed][data-colm-align-columns~="stretch"] > * {-webkit-flex-grow:1;flex-grow:1;}'
+      + '\n[data-colm-processed][data-colm-min-width] > * {-webkit-flex-shrink:1;flex-shrink:1;}'
+      + '\n[data-colm-processed] {display:-webkit-flex; display:flex;-webkit-flex-flow:row;flex-flow:row;-webkit-align-items:flex-start;align-items:flex-start;}'
+      + align('left','flex-start')
+      + align('right','flex-end')
+      + align('center','center')
+      + align('justify','space-between')
+      + align('space','space-around')
+      + align('stretch','stretch')
       );
       doc.head.appendChild(s);
     }
@@ -31,15 +44,20 @@ colm = (function() {
       
       var wCont = cont.offsetWidth;
       var cMin = Math.max(Math.floor(wCont/wMax),1);
-      var cMax = cMin + 1;
-      var wcMin = wCont / cMin;
-      var wcMax = wCont / cMax;
-      
-      var dMin = Math.abs(wMax - wcMin);
-      var dMax = Math.abs(wMax - wcMax);
-      
-      var cCount = dMin < dMax || wcMax < wMin ? cMin : cMax;
-
+      var cCount;
+      if (wMin) {
+        var cMax = cMin + 1;
+        var wcMin = wCont / cMin;
+        var wcMax = wCont / cMax;
+        
+        var dMin = Math.abs(wMax - wcMin);
+        var dMax = Math.abs(wMax - wcMax);
+        
+        cCount = dMin < dMax || wcMax < wMin ? cMin : cMax;
+      } else {
+        cCount = cMin;
+      }
+      var wCol = wCont / cCount;
       var children = [];
       
       if (dget(cont,'processed')) {
@@ -62,6 +80,7 @@ colm = (function() {
         dset(column,i==0 ? 'first' : 'not-first','true');
         dset(column,i==cCount-1 ? 'last' : 'not-last','true');
         cont.appendChild(column);
+        column.style.flexBasis = wMax+'px';
       }
       colm.appendTo(cont,children);
     })
