@@ -4,69 +4,145 @@
     <script type="text/javascript" src="colm.js"></script>
     <style>
       .colm article {
-        padding:10px;
-        background:#eee;
-        margin:0px 5px 10px 5px;
-        min-height:60px;
         font-family:sans-serif;
-        font-size:13px;
+        margin:0px 5px 10px;
+        font-size:14px;
+        line-height:1.6;
+        background:#159957;
+        color:white;
+        vertical-align:bottom;
       }
       
+      .colm article section {
+        margin:0;
+        padding:10px;
+      }
       
-      .colm article:first-letter {
-        font-size:200%;
+      .colm article h2 {
         font-weight:bold;
-        padding-right:10px;
-        vertical-align:middle;
+        font-style:normal;
+        color:#800;
+        vertical-align:top;
+        color:#159957;
+        background:white;
+        border-radius:50%;
+        display:inline-block;
+        padding:0;
+        margin:0 6px 0 0;  
+        text-align:center;
+        vertical-align:center;
+        font-size:120%;
+        line-height:1.25em;
+        width:1.25em;
+        height:1.25em;
         float:left;
       }
+      .colm article section h2 {
+        float:right;
+        margin-right:-6px;
+        margin-left:4px;
+        margin-top:-5px;
+      }
       
-      .colm article:first-line {
+      .colm article header {
+        font-size:130%;
+        background:rgba(255,255,255,0.1);
+        padding:4px;
+        vertical-align:center;
         font-weight:bold;
-        padding-right:20px;
-        font-size:150%;
-        vertical-align:middle;
       }
     </style>
   </head>
   <body>
-    <div class="colm" data-colm-width="200" data-colm-min-width="120">
+    <div id="colm1" class="colm" data-colm-width="180" data-colm-align-columns="stretch">
       <article data-colm-place="1">
-        A Always top left.
+        <header>
+          <h2>A</h2>
+          Top Left
+        </header>
       </article>
       <article data-colm-place="1">
-        B Always left.
-      </article>
-      <article data-colm-place="1" >
-        C Always left.
+        <header>
+          <h2>B</h2>
+          Second Left
+        </header>
       </article>
       <article data-colm-place="-1" >
-        D Always top right.
+        <header>
+          <h2>C</h2>
+          Top Right
+        </header>
+      </article>
+      <article data-colm-place="1" >
+        <header>
+          <h2>D</h2>
+          D Third Left
+        </header>
       </article>
       <article>
-        1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at ultrices quam. 
+        <header>
+          About this layout
+        </header>
+        <section>
+          This layout stretches columns with <code>stretch</code>.</code>
+        </section>
       </article>
       <article>
-        2 Mauris condimentum, ligula at ornare pellentesque, elit lorem pulvinar ex, id aliquam nibh lectus interdum turpis.
+        <section>
+          <h2>1</h2>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at ultrices quam. Ut nec accumsan arcu, ut ornare ante. 
+        </section>
       </article>
       <article>
-        3 Nulla nunc elit, sollicitudin et eros vitae, lacinia ullamcorper enim. 
+        <section>
+          <h2>2</h2>
+          Mauris condimentum, ligula at ornare pellentesque, elit lorem pulvinar ex, id aliquam nibh lectus interdum turpis. Pellentesque convallis odio turpis, nec commodo augue malesuada id. 
+        </section>
       </article>
       <article>
-        4 Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras sit amet leo quis ipsum feugiat semper sed in metus. 
+        <section>
+          <h2>3</h2>
+            Nulla nunc elit, sollicitudin et eros vitae, lacinia ullamcorper enim. 
+        </section>
       </article>
       <article>
-        5 Praesent dui arcu, pharetra in ornare quis, tempus non ipsum. Vestibulum et molestie tortor. 
+        <section>
+          <h2>4</h2>
+          Interdum et malesuada fames ac ante ipsum primis in faucibus. 
+        </section>
       </article>
       <article>
-        6 Vivamus pellentesque urna nec odio tristique, quis pulvinar libero ultricies. Nam elementum, lacus sed placerat fringilla, eros augue sodales eros, eu auctor ligula nisi a enim. 
+        <section>
+          <h2>5</h2>
+          Praesent dui arcu, pharetra in ornare quis, tempus non ipsum. Vestibulum et molestie tortor. Donec vitae purus nunc. 
+        </section>
       </article>
       <article>
-        7 Suspendisse tincidunt orci quis commodo fermentum. Praesent a scelerisque nibh. Sed consequat luctus posuere. 
+        <section>
+          <h2>6</h2>
+          Vivamus pellentesque urna nec odio tristique, quis pulvinar libero ultricies. 
+        </section>
       </article>
       <article>
-        8 Donec tempus turpis libero, vitae commodo odio scelerisque non. Mauris tincidunt, odio et venenatis euismod, lorem diam congue sem, vestibulum tempor ante est nec ante. 
+        <section>
+          <h2>7</h2>
+          Suspendisse tincidunt orci quis commodo fermentum. Praesent a scelerisque nibh. Sed consequat luctus posuere. 
       </article>
-    </div> 
+      <article>
+        </section>
+      </article>
+      <article>
+        <section>
+          <h2>8</h2>
+          Donec tempus turpis libero, vitae commodo odio scelerisque non.
+        </section>
+      </article>
+      <article>
+        <section>
+          <h2>9</h2>
+            Mauris tincidunt, odio et venenatis euismod, lorem diam congue sem, vestibulum tempor ante est nec ante. 
+          </section>
+      </article>
+    </div>
   </body>
 </html>
