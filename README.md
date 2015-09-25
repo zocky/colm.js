@@ -7,6 +7,7 @@ For demos and more, visit [Colm's website](http://zocky.github.io/colm.js).
 * Download `colm.js` to your script directory.
 * Add `<script type="text/javascript" src="path/to/colm.js"></script>` anywhere in your HTML.
 * Add `data-colm-width="[desired column width in pixels]"` to the container element or elements which you wish to convert into columns.
+* Optionally add `data-colm-align-columns` and `data-colm-align-items` attributes to the container. See [Advanced usage for details](#advanced-usage).
 
 You are done. No other files to import, no javascript to call. 
 
@@ -19,25 +20,37 @@ See [the demo](http://zocky.github.io/colm.js/demo).
 Colm scans your HTML for elements containing the `data-colm-width` attribute, and lays out all their immediate children into the number of columns that best fit the desired column width. This is achieved by placing the appropriate number of simple `<div>` elements into the container to represent columns, and then looping through all the original children and placing each into the shortest column. 
 
 ## Advanced usage
-Use `colm()` to layout any newly added column containers.
 
-### `colm.appendTo(selector,content)`
+### <code>colm()</code>
+Use `colm()` to programmatically trigger layouting on the page. This is automatically called on page load and resize.
+
+### <code>colm.appendTo(*selector*,*content*)</code>
 Use `colm.appendTo` to add new children to a container. Content can be a single element, an array or node list of elements or an HTML string.
 
-### `data-colm-align-columns`
+### <code>data-colm-align-columns="*alignment*"</code>
 Use the `data-colm-align-columns` attribute on the container element to control distribution of left over space, if the width of the container isn't an exact multiple of the column width.
 Can have the following values: 
 * `left` aligns columns to the left of the container
 * `right` aligns columns to the right of the container
-* `center` centers columns horizontally inside the container
+* `center` centers columns horizontally within the container
 * `justify` adds equal space between columns
 * `space` adds equal space between and around columns
 * `stretch` stretches columns to fill the container
 
-### `data-colm-min-width`
+### <code>data-colm-align-items="*alignment*"</code>
+Use the `data-colm-align-columns` attribute on the container element to control distribution of left over space within each column.
+Can have the following values: 
+* `top` aligns items to the top of the column
+* `bottom` aligns items to the bottom of the column
+* `center` centers items vertically within the container
+* `justify` adds equal space between items
+* `space` adds equal space between and around items
+* `stretch` stretches items to fill the column
+
+### <code>data-colm-min-width="*width in pixels*"</code>
 Use the `data-colm-min-width` attribute on the container element if you want to allow your columns to shrink somewhat to fit another column in the container. 
 
-### `data-colm-place`
+### <code>data-colm-place="*column*"</code>
 Use the `data-colm-place` attribute on child elements to force them into a particular column. Use negative numbers for counting from the right. The most useful values are `"1"` and `"-1"`, especially when used on the first few children. This can be used to place content reliably in top left and right corners, and gracefully collapse it into a single column on narrower displays.
 
 ## Things to consider
