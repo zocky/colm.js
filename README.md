@@ -8,10 +8,11 @@ Minimal setup pinterest-like columns.
 
 You are done. No other files to import, no javascript to call. 
 
+You can now use regular CSS, including `@media` queries to control the width of your container and hence the actual number and width of columns. When the window is resized, colm checks if the number of column needs to be changed, and if so, lays out the elements again.
+
 ## What just happened
 Colm scans your HTML for elements containing the `data-colm-width` attribute, and lays out all their immediate children into the number of columns that best fit the desired column width. This is achieved by placing the appropriate number of simple `<div>` elements into the container to represent columns, and then looping through all the original children and placing each into the shortest column. 
 
-Use regular CSS, including `@media` queries to control the width of your container and hence the actual number and width of columns. When the window is resized, colm checks if the number of column needs to be changed, and if so, lays out the elements again.
 
 ## Advanced usage
 * Use `colm()` to layout any newly added column containers
