@@ -108,6 +108,7 @@ colm = (function() {
         dset(column,'column',i+1);
         dset(column,i==0 ? 'first' : 'not-first','true');
         dset(column,i==cCount-1 ? 'last' : 'not-last','true');
+        column.style.flexBasis = wMax+'px';
         cont.appendChild(column);
       }
       colm.appendTo(cont,children);
