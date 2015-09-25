@@ -1,4 +1,27 @@
-<div id="demo">
-  <iframe id="demo-left" src="demo1.html"></iframe>
-  <iframe id="demo-right" src="demo2.html"></iframe>
-</div>
+<!doctype HTML>
+<html>
+  <head>
+    <style>
+      #demo {
+        display:flex;
+        flex-flow:row;
+        position:fixed;
+        top:0; left:0;
+        right:0; bottom:0;
+      }
+      #demo-left {
+        width:50%;
+        flex:0 0 0;
+      }
+      #demo-right {
+        flex:1 1 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="demo">
+      <iframe id="demo-left" src="demo1.html"></iframe>
+      <iframe id="demo-right" src="demo2.html"></iframe>
+    </div>
+  </body>
+</html>
