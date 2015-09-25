@@ -4,7 +4,7 @@ Colm provides responsive columns (like Pinterest or Masonry) with minimal setup.
 For demos and more, visit [Colm's website](http://zocky.github.io/colm.js).
 
 ## Basic usage
-* Download [colm.js](build/colm.js) or [colm.min.js](build/colm.min.js) to your script directory.
+* Download [colm.js](http://zocky.github.io/colm.js/build/colm.js) or [colm.min.js](http://zocky.github.io/colm.js/build/colm.min.js) to your script directory.
 * Add `<script type="text/javascript" src="path/to/colm.js"></script>` anywhere in your HTML.
 * Add `data-colm-width="[desired column width in pixels]"` to the container element or elements which you wish to convert into columns.
 * Optionally add `data-colm-align-columns` and `data-colm-align-items` attributes to the container. See [Advanced usage](#advanced-usage) for details.
