@@ -1,7 +1,7 @@
 # Colm - Column maker
-Colm provides responsive columns (like Pinterest or Masonry) with minimal setup.
+Colm provides responsive columns (like Pinterest or Masonry) with minimal setup. Supports current version of all major browsers.
 
-For demos and more, visit [Colm's website](http://zocky.github.io/colm.js).
+For demos and more, visit [Colm's website](http://zocky.github.io/colm.js). 
 
 ## Basic usage
 * Download [colm.js](http://zocky.github.io/colm.js/build/colm.js) or [colm.min.js](http://zocky.github.io/colm.js/build/colm.min.js) to your script directory.
@@ -14,7 +14,7 @@ You are done. No other files to import, no javascript to call.
 You can now use regular CSS, including `@media` queries to control the width of your container(s) and hence the actual number and width of columns. When the window is resized, colm checks if the number of column needs to be changed, and if so, lays out the elements again.
 
 ## How does it look?
-See [the demo](http://zocky.github.io/colm.js/demo).
+See [the demo](http://zocky.github.io/colm.js/demo) or visit [the kitchensink](http://zocky.github.io/colm.js/demo/kitchensink.html) to try out different settings.
 
 ## What just happened
 Colm scans your HTML for elements containing the `data-colm-width` attribute, and lays out all their immediate children into the number of columns that best fit the desired column width. This is achieved by placing the appropriate number of simple `<div>` elements into the container to represent columns, and then looping through all the original children and placing each into the shortest column. 
