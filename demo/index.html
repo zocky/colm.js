@@ -14,13 +14,21 @@
         -webkit-flex:0 0 400px;
         flex:0 0 400px;
         border:solid 1px silver;
-        height:100%;
+        position:relative;
       }
       #demo-right {
         -webkit-flex:1 1 0;
         flex:1 1 auto;
         border:solid 1px silver;
+        position:relative;
+      }
+      iframe {
+        margin:0;
+        padding:0;
+        width:100%;
         height:100%;
+        border:none;
+        position:absolute;
       }
       #demo-divider {
         width:8px;
@@ -48,9 +56,13 @@
   </head>
   <body>
     <div id="demo">
-      <iframe id="demo-left" src="demo1.html"></iframe>
+      <div id="demo-left">
+        <iframe src="demo1.html"></iframe>
+      </div>
       <button id="demo-divider"></button>
-      <iframe id="demo-right" src="demo2.html"></iframe>
+      <div  id="demo-right">
+        <iframe src="demo2.html"></iframe>
+      </div>
     </div>
     <div id="demo-divider-overlay" style="display:none"></div>
     <script type="text/javascript">
@@ -71,7 +83,6 @@
         w2 = Math.max(100,Math.min(div.parentNode.offsetWidth - 100,w+dx));
         div.previousElementSibling.style.flexBasis = w2+'px';
         div.previousElementSibling.style['-webkit-flex-basis'] = w2+'px';
-        colm();
       })
       overlay.addEventListener('mouseup',function(e){
         overlay.style.display='none';
