@@ -5,11 +5,11 @@
     <style>
      body {
         margin:0;
-        padding:10px;
+        padding:20px;
         font-family:sans-serif;
         font-size:14px;
         margin-left:270px;
-        background:#eee;
+        background:#ccc;
       }
       
       h1 {
@@ -28,30 +28,47 @@
         font-weight:normal;
       }
       
+      h2 {
+        margin:15px 0 0;
+        font-size:16px;
+        border-top:solid 1px white;
+        padding-top:10px;
+      }
       #settings {
         position:fixed;
         top:0;
         left:0;
         bottom:0;
         width:250px;
-        background:#468;
+        background:#333;
         padding:10px;
-        border-right:solid 1px #999;
+        border-right:solid 0px #fff;
         color:white;
       }
-      
-      #settings dl {
-        margin:0;
+
+      #settings hr {
+        border:none;
+        height:1px;
+        background:white;
+        margin:5px 0;
         padding:0;
       }
+      #settings p {
+        padding:10px 0;
+        line-height:1.4;
+        margin:0;
+      }
+      #settings dl {
+        margin:0;
+      }
       #settings dt {
-        margin:15px 0px 5px;
+        margin:10px 0px 5px;
         font-family:monospace;
         font-size:12px;
         font-weight:bold;
       }
       #settings dd {
-        margin:0 0 10px;
+        margin:10px 0;
         padding:0;
       }
       #settings dd > * {
@@ -66,11 +83,14 @@
         margin:10px;
         font-size:14px;
         line-height:1.6;
-        background:#eee;
+        background:#68a;
         color:#333;
         vertical-align:bottom;
+        color:white;
       }
-      
+      #about {
+        background:#d72;
+      }
       .colm article section {
         margin:0;
         padding:6px 10px;
@@ -80,8 +100,7 @@
         font-weight:bold;
         font-style:normal;
         vertical-align:top;
-        color:#333;
-        box-shadow:0 0 0 1px #ccc;
+        color:#468;
         background:white;
         border-radius:50%;
         display:inline-block;
@@ -104,20 +123,26 @@
         font-weight:bold;
         line-height:20px;
       }
+      .colm > [data-colm-column] {
+        border:solid 1px #cde;
+      }
+      .colm > [data-colm-not-first] {
+        border-left:none;
+      }
     </style>
   </head>
   <body>
     <div id="settings">
       <h1>Colm.js <small>The Kitchensink Demo</small></h1>
-      
+      <h2>Attributes</h2>
       <dl>
         <dt>data-colm-width</dt>
-        <dd><input type="number" name="data-colm-width" value="160" step="10"></dd>
+        <dd><input type="number" name="data-colm-width" value="240" step="10"></dd>
         <dt>data-colm-min-width</dt>
-        <dd><input type="number" name="data-colm-min-width" value="140" step="10"></dd>
+        <dd><input type="number" name="data-colm-min-width" value="" step="10"></dd>
         <dt>data-colm-align-columns</dt>
         <dd>
-          <select name="data-colm-align-columns" value="140" step="10">
+          <select name="data-colm-align-columns" step="10">
             <option>left</option>
             <option>right</option>
             <option>center</option>
@@ -128,7 +153,7 @@
         </dd>
         <dt>data-colm-align-items</dt>
         <dd>
-          <select name="data-colm-align-items" value="140" step="10">
+          <select name="data-colm-align-items" step="10">
             <option>top</option>
             <option>bottom</option>
             <option>center</option>
@@ -138,30 +163,23 @@
           </select>
         </dd>
       </dl>
+      <h2>Tip</h2>
+      <p>Drag the resizer to resize the layout.</p>
     </div>
     <div 
       id="colm"
       class="colm"
-      data-colm-width="160"
-      data-colm-min-width="140"
+      data-colm-width="240"
+      data-colm-min-width=""
       data-colm-align-columns="left"
       data-colm-align-items="top"
     >
-      <article>
+      <article id="about">
         <header>
-          <h2>A</h2>
           About
         </header>
         <section>
-        Container settings
-<pre>width:  
-  160
-min-width:
-  140
-align-columns:
-  stretch
-align-items:
-  stretch</pre>
+          Change settings on the left to see how they affect the layout.
         </section>
       </article>
       <article>
