@@ -17,9 +17,13 @@ colm = (function() {
   var each = function(a,fn) {
     array(a).forEach(fn);
   }
+  var remove = function(el) {
+    return el.parentNode.removeChild(el);
+  }
   var doc = document;
   var colm = function colm() {
     if (!init_done) {
+      if (document.body.style.flexWrap === undefined) return;
       init_done = true;
       var s = doc.createElement('style');
       function pref(a,b) {
@@ -93,11 +97,11 @@ colm = (function() {
         if (cont.children.length == cCount) return;
         each(cont.children, function(a){
           each(a.children, function(b){
-            children[dget(b,'index')] = b;
+            children[dget(b,'index')] = remove(b);
           });
         })
       } else {
-        children = array(cont.children);
+        children = array(cont.children).map(remove);
         dset(cont,'processed','true');
         dset(cont,'count',0);
       }
@@ -150,3 +154,4 @@ colm = (function() {
   addEventListener('load', colm);      
   return colm;
 })();
+
