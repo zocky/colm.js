@@ -23,6 +23,7 @@ colm = (function() {
   var doc = document;
   var colm = function colm() {
     if (!init_done) {
+      if (document.body.style.flexWrap !== undefined) return;
       init_done = true;
       var s = doc.createElement('style');
       function pref(a,b) {
