@@ -1,0 +1,80 @@
+<html>
+  <head>
+    <style>
+      #demo {
+        display:-webkit-flex;
+        display:flex;
+        -webkit-flex-flow:row;
+        flex-flow:row;
+        position:fixed;
+        top:0; left:0;
+        right:0; bottom:0;
+      }
+      #demo-left {
+        -webkit-flex:0 0 400px;
+        flex:0 0 400px;
+        border:solid 1px silver;
+      }
+      #demo-right {
+        -webkit-flex:1 1 0;
+        flex:1 1 0;
+        border:solid 1px silver;
+      }
+      #demo-divider {
+        width:8px;
+        background:#fff;
+        cursor:col-resize;
+        border:none;
+        padding:0;
+      }
+      #demo-divider:active,#demo-divider:focus {
+        outline:none;
+        border:none;
+      }
+      #demo-divider:hover {
+       
+      }
+      #demo-divider-overlay {
+        position:fixed;
+        cursor:col-resize;
+        top:0;
+        right:0;
+        left:0;
+        bottom:0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="demo">
+      <iframe id="demo-left" src="demo1.html"></iframe>
+      <button id="demo-divider"></button>
+      <iframe id="demo-right" src="demo2.html"></iframe>
+    </div>
+    <div id="demo-divider-overlay" style="display:none"></div>
+    <script type="text/javascript">
+      var x,w,down;
+      var div = document.getElementById('demo-divider');
+      var overlay = document.getElementById('demo-divider-overlay');
+      div.addEventListener('mousedown',function(e){
+        overlay.style.display='block';
+        x = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+        w = div.previousElementSibling.offsetWidth;
+        down = true;
+        console.log(x,w);
+      })
+      overlay.addEventListener('mousemove',function(e){
+        if (!down) return;
+        var x2 = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+        dx = x2-x;
+        w2 = Math.max(100,Math.min(div.parentNode.offsetWidth - 100,w+dx));
+        div.previousElementSibling.style.flexBasis = w2+'px';
+        div.previousElementSibling.style['-webkit-flex-basis'] = w2+'px';
+        colm();
+      })
+      overlay.addEventListener('mouseup',function(e){
+        overlay.style.display='none';
+        down = false;
+      })
+    </script>
+  </body>
+</html>
