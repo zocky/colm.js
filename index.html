@@ -22,7 +22,7 @@
       <h1>
 <a id="colm---column-maker" class="anchor" href="#colm---column-maker" aria-hidden="true"><span class="octicon octicon-link"></span></a>Colm - Column maker</h1>
 
-<p>Colm provides responsive columns (like Pinterest or Masonry) with minimal setup.</p>
+<p>Colm provides responsive columns (like Pinterest or Masonry) with minimal setup. Supports current version of all major browsers.</p>
 
 <p>For the source code, visit <a href="https://github.com/zocky/colm.js">Colm's github repository</a>.</p>
 
@@ -44,11 +44,13 @@
 <a id="how-does-it-look" class="anchor" href="#how-does-it-look" aria-hidden="true"><span class="octicon octicon-link"></span></a>How does it look?</h2>
 <iframe src="http://zocky.github.io/colm.js/demo" style="width:100%;height:400px;height:50vh;resize:both;border:none"></iframe>
 <p>Drag the divider to see how items are layed out at various widths, or visit <a href="http://zocky.github.io/colm.js/demo">the full-page demo</a>.</p>
+<p>You can use the kitchen sink <a href="http://zocky.github.io/colm.js/demo/kitchensink.html">to try out different settings.</a>.</p>
 
 <h2>
 <a id="what-just-happened" class="anchor" href="#what-just-happened" aria-hidden="true"><span class="octicon octicon-link"></span></a>What just happened</h2>
 
 <p>Colm scans your HTML for elements containing the <code>data-colm-width</code> attribute, and lays out all their immediate children into the number of columns that best fit the desired column width. This is achieved by placing the appropriate number of simple <code>&lt;div&gt;</code> elements into the container to represent columns, and then looping through all the original children and placing each into the shortest column. </p>
+<p>Colm relies on CSS3 flex box functionality. If it is not supported in the browser, Colm will quietly skip layouting and leave your HTML as is.</p>
 
 <h2>
 <a id="advanced-usage" class="anchor" href="#advanced-usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Advanced usage</h2>
