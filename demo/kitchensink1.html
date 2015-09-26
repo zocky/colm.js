@@ -1,22 +1,72 @@
 <!doctype HTML>
 <html>
   <head>
-    <script type="text/javascript" src="../build/colm.0.8.js"></script>
+    <script type="text/javascript" src="../src/colm.js"></script>
     <style>
      body {
         margin:0;
         padding:0;
+        font-family:sans-serif;
+        font-size:14px;
+        margin-left:270px;
+        background:#999;
+      }
+      
+      h1 {
+        padding:0;
+        margin:10px 0;
+        font-size:28px;
+        font-weight:bold;
+        color:#333;
+        line-height:1.4;
+      }
+      
+      h1 small {
+        display:block;
+        color:#999;
+        font-size:18px;
+        font-weight:normal;
+      }
+      
+      #settings {
+        position:fixed;
+        top:0;
+        left:0;
+        bottom:0;
+        width:250px;
+        background:#eee;
+        padding:10px;
+        border-right:solid 1px #999;
+      }
+      
+      #settings dl {
+        margin:0;
+        padding:0;
+      }
+      #settings dt {
+        margin:15px 0px 5px;
+        font-family:monospace;
+        font-size:12px;
+        font-weight:bold;
+      }
+      #settings dd {
+        margin:0 0 10px;
+        padding:0;
+      }
+      #settings dd > * {
+        width:100%;
       }
       .colm {
-        padding:2px;
+        padding:10px;
+        background:white;
       }
       .colm article {
         font-family:sans-serif;
-        margin:2px;
+        margin:10px;
         font-size:14px;
         line-height:1.6;
-        background:#159957;
-        color:white;
+        background:#eee;
+        color:#333;
         vertical-align:bottom;
       }
       
@@ -28,9 +78,9 @@
       .colm article h2 {
         font-weight:bold;
         font-style:normal;
-        color:#800;
         vertical-align:top;
-        color:#159957;
+        color:#333;
+        box-shadow:0 0 0 1px #ccc;
         background:white;
         border-radius:50%;
         display:inline-block;
@@ -44,12 +94,7 @@
         line-height:20px;
         float:left;
       }
-      .colm article section h2 {
-        float:right;
-        margin-right:-5px;
-        margin-left:4px;
-        margin-top:-1px;
-      }
+
       
       .colm article header {
         font-size:16px;
@@ -61,13 +106,45 @@
     </style>
   </head>
   <body>
+    <div id="settings">
+      <h1>Colm.js <small>Kitchenskin Demo</small></h1>
+      
+      <dl>
+        <dt>data-colm-width</dt>
+        <dd><input type="number" name="data-colm-width" value="160" step="10"></dd>
+        <dt>data-colm-min-width</dt>
+        <dd><input type="number" name="data-colm-min-width" value="140" step="10"></dd>
+        <dt>data-colm-align-columns</dt>
+        <dd>
+          <select name="data-colm-align-columns" value="140" step="10">
+            <option>left</option>
+            <option>right</option>
+            <option>center</option>
+            <option>justify</option>
+            <option>space</option>
+            <option>stretch</option>
+          </select>
+        </dd>
+        <dt>data-colm-align-items</dt>
+        <dd>
+          <select name="data-colm-align-items" value="140" step="10">
+            <option>top</option>
+            <option>bottom</option>
+            <option>center</option>
+            <option>justify</option>
+            <option>space</option>
+            <option>stretch</option>
+          </select>
+        </dd>
+      </dl>
+    </div>
     <div 
-      id="colm1"
+      id="colm"
       class="colm"
       data-colm-width="160"
       data-colm-min-width="140"
-      data-colm-align-columns="stretch"
-      data-colm-align-items="stretch"
+      data-colm-align-columns="left"
+      data-colm-align-items="top"
     >
       <article>
         <header>
@@ -134,5 +211,13 @@ align-items:
         </section>
       </article>
     </div>
+  <script>
+    document.getElementById('settings').addEventListener('change',function(e){
+      if (e.target.name) {
+        document.getElementById('colm').setAttribute(e.target.name,e.target.value);   
+        colm();
+      }
+    })
+  </script>
   </body>
 </html>

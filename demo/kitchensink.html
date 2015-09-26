@@ -9,16 +9,32 @@
         position:fixed;
         top:0; left:0;
         right:0; bottom:0;
+        font-family:sans-serif;
       }
       #demo-left {
         -webkit-flex:0 0 400px;
-        flex:0 0 400px;
+        flex:0 0 800px;
         border:solid 1px silver;
       }
       #demo-right {
         -webkit-flex:1 1 0;
         flex:1 1 0;
+        display:-webkit-flex;
+        display:flex;
+        -webkit-justify-content:center;
+        justify-content:center;
+        -webkit-align-items:center;
+        align-items:center;
         border:solid 1px silver;
+        background:#999;
+      }
+      #msg-resize {
+        background:white;
+        border-radius:6px;
+        padding:6px 10px ;
+        font-size:14px;
+        margin:20px;
+        text-align:center;
       }
       #demo-divider {
         width:8px;
@@ -46,9 +62,11 @@
   </head>
   <body>
     <div id="demo">
-      <iframe id="demo-left" src="demo1.html"></iframe>
+      <iframe name="kitchensink" id="demo-left" src="kitchensink1.html"></iframe>
       <button id="demo-divider"></button>
-      <iframe id="demo-right" src="demo2.html"></iframe>
+      <div id="demo-right">
+        <div id="msg-resize">Drag the divider to see how items are layed out at different widths.</div>
+      </div>
     </div>
     <div id="demo-divider-overlay" style="display:none"></div>
     <script type="text/javascript">
@@ -60,7 +78,6 @@
         x = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
         w = div.previousElementSibling.offsetWidth;
         down = true;
-        console.log(x,w);
       })
       overlay.addEventListener('mousemove',function(e){
         if (!down) return;
