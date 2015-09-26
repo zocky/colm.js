@@ -70,13 +70,13 @@ colm = (function() {
       function fget(p) {
         return parseFloat(cs[p]);
       }
-      var w = fget('width');
+      var w = Math.max(20,fget('width'));
       if (cs['box-sizing'] == 'border-box') {
         w -= fget('border-left-width') + fget('padding-left') + fget('padding-right') + fget('border-right-width');
       }
           
       var wCont = w;
-      var cMin = Math.max(Math.floor(wCont/wMax),1);
+      var cMin = Math.min(Math.max(Math.floor(wCont/wMax),1),64);
       var cCount;
       if (wMin) {
         var cMax = cMin + 1;
