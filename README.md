@@ -19,6 +19,8 @@ See [the demo](http://zocky.github.io/colm.js/demo) or visit [the kitchensink](h
 ## What just happened
 Colm scans your HTML for elements containing the `data-colm-width` attribute, and lays out all their immediate children into the number of columns that best fit the desired column width. This is achieved by placing the appropriate number of simple `<div>` elements into the container to represent columns, and then looping through all the original children and placing each into the shortest column. 
 
+Colm relies on CSS3 flex box functionality. If it is not supported in the browser, Colm will quietly skip layouting and leave your HTML as is.
+
 ## Advanced usage
 
 ### <code>colm()</code>
