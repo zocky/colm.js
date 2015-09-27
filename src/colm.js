@@ -20,6 +20,9 @@ colm = (function() {
   var remove = function(el) {
     return el.parentNode.removeChild(el);
   }
+  
+  
+  
   var doc = document;
   var colm = function colm() {
     if (!init_done) {
@@ -72,7 +75,7 @@ colm = (function() {
       }
       var w = Math.max(20,fget('width'));
       if (cs['box-sizing'] == 'border-box') {
-        w -= fget('border-left-width') + fget('padding-left') + fget('padding-right') + fget('border-right-width');
+          w -= fget('border-left-width') + fget('padding-left') + fget('padding-right') + fget('border-right-width');
       }
           
       var wCont = w;
@@ -151,15 +154,7 @@ colm = (function() {
     dset(cont,'count',cnt);
   }
   var timeout = null;
-  addEventListener('resize', function() {
-    if (timeout) {
-      clearTimeout(timeout);
-      timeout = setTimeout(function(){
-        timeout = null;
-        colm();
-      },100);
-    }
-  });
+  addEventListener('resize', colm);
   addEventListener('load', colm);      
   return colm;
 })();
