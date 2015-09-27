@@ -156,6 +156,7 @@ colm = (function() {
     if (t) clearTimeout(t);
     if (now - t > 100) {
       colm();
+      t = now;
     } else {
       setTimeout(colm,100);
     }
