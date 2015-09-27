@@ -161,7 +161,7 @@ colm = (function() {
       setTimeout(function(){
         t = null;
         colm();
-      ,100);
+      },100);
     }
   });
   addEventListener('load', colm);      
