@@ -154,7 +154,7 @@ colm = (function() {
   addEventListener('resize', function() {
     var now = Date.now();
     if (t) clearTimeout(t);
-    if (now - t > 300) {
+    if (now - t > 100) {
       colm();
       t = now;
     } else {
