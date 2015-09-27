@@ -230,13 +230,14 @@
         </section>
       </article>
     </div>
-  <script>
-    document.getElementById('settings').addEventListener('change',function(e){
-      if (e.target.name) {
-        document.getElementById('colm').setAttribute(e.target.name,e.target.value);   
-        colm();
-      }
-    })
-  </script>
+    <br style="clear:both">
+    <script>
+      document.getElementById('settings').addEventListener('change',function(e){
+        if (e.target.name) {
+          document.getElementById('colm').setAttribute(e.target.name,e.target.value);   
+          colm();
+        }
+      })
+    </script>
   </body>
 </html>

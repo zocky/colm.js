@@ -150,7 +150,11 @@ colm = (function() {
     dset(cont,'done','true');
     dset(cont,'count',cnt);
   }
-  addEventListener('resize', colm);      
+  var t = null;
+  addEventListener('resize', function() {
+    if (t) clearTimeout(t);
+    setTimeout(colm,100);
+  });
   addEventListener('load', colm);      
   return colm;
 })();
