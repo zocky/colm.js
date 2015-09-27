@@ -150,17 +150,10 @@ colm = (function() {
     dset(cont,'done','true');
     dset(cont,'count',cnt);
   }
-  var t, timeout = 0;
+  var timeout = null;
   addEventListener('resize', function() {
-    var now = Date.now();
     if (timeout) {
       clearTimeout(timeout);
-      timeout = null;
-    }
-    if (now - t > 100) {
-      colm();
-      t = now;
-    } else {
       timeout = setTimeout(function(){
         timeout = null;
         colm();
