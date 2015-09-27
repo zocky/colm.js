@@ -150,10 +150,15 @@ colm = (function() {
     dset(cont,'done','true');
     dset(cont,'count',cnt);
   }
-  var t = null;
+  var t, timeout = 0;
   addEventListener('resize', function() {
+    var now = Date.now();
     if (t) clearTimeout(t);
-    setTimeout(colm,100);
+    if (now - t > 100) {
+      colm();
+    } else {
+      setTimeout(colm,100);
+    }
   });
   addEventListener('load', colm);      
   return colm;
