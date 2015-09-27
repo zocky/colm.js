@@ -153,13 +153,16 @@ colm = (function() {
   var t, timeout = 0;
   addEventListener('resize', function() {
     var now = Date.now();
-    if (t) clearTimeout(t);
+    if (timeout) {
+      clearTimeout(timeout);
+      timeout = null;
+    }
     if (now - t > 100) {
       colm();
       t = now;
     } else {
-      setTimeout(function(){
-        t = null;
+      timeout = setTimeout(function(){
+        timeout = null;
         colm();
       },100);
     }
